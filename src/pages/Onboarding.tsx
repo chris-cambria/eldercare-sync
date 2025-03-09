@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
@@ -76,13 +75,25 @@ const Onboarding = () => {
   const { toast } = useToast();
 
   const handleChange = (section: keyof ElderlyInfo, field: string, value: string) => {
-    setElderlyInfo(prev => ({
-      ...prev,
-      [section]: {
-        ...prev[section as keyof typeof prev],
-        [field]: value
+    setElderlyInfo(prev => {
+      // Fix: Handle primitive values and object values differently
+      if (field === '') {
+        // This is a direct property of elderlyInfo (like name, age, etc.)
+        return {
+          ...prev,
+          [section]: value
+        };
+      } else {
+        // This is for nested objects, which we're not currently using in this way
+        return {
+          ...prev,
+          [section]: {
+            ...prev[section as keyof typeof prev],
+            [field]: value
+          }
+        };
       }
-    }));
+    });
   };
 
   const handleArrayChange = (
