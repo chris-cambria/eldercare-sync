@@ -76,22 +76,26 @@ const Onboarding = () => {
 
   const handleChange = (section: keyof ElderlyInfo, field: string, value: string) => {
     setElderlyInfo(prev => {
-      // Fix: Handle primitive values and object values differently
+      // Fix: Handle primitive values directly
       if (field === '') {
-        // This is a direct property of elderlyInfo (like name, age, etc.)
         return {
           ...prev,
           [section]: value
         };
       } else {
-        // This is for nested objects, which we're not currently using in this way
-        return {
-          ...prev,
-          [section]: {
-            ...prev[section as keyof typeof prev],
-            [field]: value
-          }
-        };
+        // This case is not currently used in this component
+        // But we'll keep it for future extensibility
+        const sectionValue = prev[section];
+        if (typeof sectionValue === 'object' && sectionValue !== null) {
+          return {
+            ...prev,
+            [section]: {
+              ...sectionValue,
+              [field]: value
+            }
+          };
+        }
+        return prev;
       }
     });
   };
