@@ -167,17 +167,17 @@ const Schedules = () => {
     <div className="space-y-6">
       <h1 className="text-2xl font-bold">Schedules</h1>
       
-      <div className="flex flex-col sm:flex-row gap-6">
-        <Card className="sm:w-64 flex-shrink-0">
+      <div className="flex flex-col md:flex-row gap-6">
+        <Card className="md:w-80 flex-shrink-0 h-fit">
           <CardHeader>
             <CardTitle className="text-lg">Date</CardTitle>
           </CardHeader>
-          <CardContent>
+          <CardContent className="pb-4">
             <Calendar
               mode="single"
               selected={date}
               onSelect={(newDate) => newDate && setDate(newDate)}
-              className="pointer-events-auto rounded-md border"
+              className="rounded-md border"
             />
           </CardContent>
         </Card>

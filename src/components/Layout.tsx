@@ -5,9 +5,7 @@ import {
   Calendar, 
   Clock, 
   Home, 
-  Bell, 
-  Activity, 
-  Settings,
+  Activity,
   PanelLeftClose,
   PanelLeftOpen
 } from 'lucide-react';
@@ -27,20 +25,11 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
     { path: '/', icon: <Home className="w-5 h-5" />, label: 'Dashboard' },
     { path: '/schedules', icon: <Calendar className="w-5 h-5" />, label: 'Schedules' },
     { path: '/alarms', icon: <Clock className="w-5 h-5" />, label: 'Alarms' },
-    { path: '/notifications', icon: <Bell className="w-5 h-5" />, label: 'Notifications' },
     { path: '/health', icon: <Activity className="w-5 h-5" />, label: 'Health' },
-    { path: '/settings', icon: <Settings className="w-5 h-5" />, label: 'Settings' },
   ];
 
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
-  };
-
-  const showComingSoonToast = (feature: string) => {
-    toast({
-      title: "Coming Soon",
-      description: `${feature} feature will be available in the next update.`,
-    });
   };
 
   return (
@@ -73,13 +62,6 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
               <Link
                 key={item.path}
                 to={item.path}
-                onClick={(e) => {
-                  // Only allow dashboard and schedules to navigate for now
-                  if (!["/", "/schedules", "/alarms", "/health"].includes(item.path)) {
-                    e.preventDefault();
-                    showComingSoonToast(item.label);
-                  }
-                }}
                 className={cn(
                   "flex items-center p-2 rounded-lg",
                   location.pathname === item.path 
