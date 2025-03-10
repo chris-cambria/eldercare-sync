@@ -18,8 +18,8 @@ const Login = () => {
     
     if (!email || !password) {
       toast({
-        title: 'Error',
-        description: 'Please enter both email and password',
+        title: 'பிழை',
+        description: 'மின்னஞ்சல் மற்றும் கடவுச்சொல் இரண்டையும் உள்ளிடவும்',
         variant: 'destructive',
       });
       return;
@@ -35,15 +35,15 @@ const Login = () => {
     <div className="flex items-center justify-center min-h-screen bg-gray-50">
       <Card className="w-full max-w-md">
         <CardHeader className="space-y-1">
-          <CardTitle className="text-2xl font-bold text-center">ElderCare Sync</CardTitle>
+          <CardTitle className="text-2xl font-bold text-center">AuraWell</CardTitle>
           <CardDescription className="text-center">
-            Enter your credentials to access your account
+            உங்கள் கணக்கை அணுக சான்றுகளை உள்ளிடவும்
           </CardDescription>
         </CardHeader>
         <CardContent>
           <form onSubmit={handleLogin} className="space-y-4">
             <div className="space-y-2">
-              <Label htmlFor="email">Email</Label>
+              <Label htmlFor="email">மின்னஞ்சல்</Label>
               <Input 
                 id="email" 
                 type="email" 
@@ -54,7 +54,7 @@ const Login = () => {
               />
             </div>
             <div className="space-y-2">
-              <Label htmlFor="password">Password</Label>
+              <Label htmlFor="password">கடவுச்சொல்</Label>
               <Input 
                 id="password" 
                 type="password" 
@@ -64,12 +64,12 @@ const Login = () => {
                 required
               />
             </div>
-            <Button type="submit" className="w-full">Log in</Button>
+            <Button type="submit" className="w-full">உள்நுழை</Button>
           </form>
         </CardContent>
         <CardFooter>
           <p className="text-sm text-center text-gray-500 w-full">
-            Don't have an account? <a href="#" className="text-eldercare-blue hover:underline">Sign up</a>
+            கணக்கு இல்லையா? <a href="#" className="text-eldercare-blue hover:underline">பதிவு செய்யுங்கள்</a>
           </p>
         </CardFooter>
       </Card>

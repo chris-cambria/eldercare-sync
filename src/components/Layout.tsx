@@ -25,10 +25,10 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
   const { toast } = useToast();
 
   const navItems = [
-    { path: '/', icon: <Home className="w-5 h-5" />, label: 'Dashboard' },
-    { path: '/schedules', icon: <Calendar className="w-5 h-5" />, label: 'Schedules' },
-    { path: '/alarms', icon: <Clock className="w-5 h-5" />, label: 'Alarms' },
-    { path: '/health', icon: <Activity className="w-5 h-5" />, label: 'Health' },
+    { path: '/', icon: <Home className="w-5 h-5" />, label: 'டாஷ்போர்டு' },
+    { path: '/schedules', icon: <Calendar className="w-5 h-5" />, label: 'அட்டவணைகள்' },
+    { path: '/alarms', icon: <Clock className="w-5 h-5" />, label: 'அலாரங்கள்' },
+    { path: '/health', icon: <Activity className="w-5 h-5" />, label: 'ஆரோக்கியம்' },
   ];
 
   const toggleSidebar = () => {
@@ -42,8 +42,8 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
     localStorage.removeItem('elderly-info');
     
     toast({
-      title: 'Signed out successfully',
-      description: 'You have been signed out of your account.',
+      title: 'வெற்றிகரமாக வெளியேறியுள்ளீர்கள்',
+      description: 'உங்கள் கணக்கிலிருந்து வெளியேற்றப்பட்டுள்ளீர்கள்.',
     });
     
     // Navigate to login page
@@ -63,7 +63,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
           <div>
             <div className="flex items-center justify-between mb-6">
               {isSidebarOpen && (
-                <h1 className="text-xl font-bold text-eldercare-blue">ElderCare Sync</h1>
+                <h1 className="text-xl font-bold text-eldercare-blue">AuraWell</h1>
               )}
               <button 
                 onClick={toggleSidebar}
@@ -107,7 +107,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
               onClick={handleSignOut}
             >
               <LogOut className="w-5 h-5" />
-              {isSidebarOpen && <span className="ml-3">Sign Out</span>}
+              {isSidebarOpen && <span className="ml-3">வெளியேறு</span>}
             </Button>
           </div>
         </div>
